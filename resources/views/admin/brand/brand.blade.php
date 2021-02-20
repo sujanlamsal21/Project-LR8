@@ -1,12 +1,7 @@
+@extends('admin.admin_master');
 
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-           All Brand
-        </h2>
+@section('admin')
 
-
-    </x-slot>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <div class="py-7">
     <div class="container">
@@ -87,5 +82,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
 
+@endsection

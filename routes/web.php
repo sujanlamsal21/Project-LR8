@@ -23,7 +23,7 @@ Route::get('/email/verify', function () {
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
@@ -45,7 +45,7 @@ Route::get('/brand/all', [BrandController::class, 'index'])->name('brand.all');
 
 Route::post('/brand/add', [BrandController::class, 'brandstore'])->name('brand.store');
 
-Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
 
 Route::post('/brand/edit/{id}', [BrandController::class, 'brandupdate'])->name('brand.update');
 
