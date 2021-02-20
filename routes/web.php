@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MultipleController;
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,8 @@ Route::get('/email/verify', function () {
 
 
 Route::get('/', function () {
-    return view('home');
+    $brands = DB::table('brands')->get();
+    return view('home', compact('brands'));
 });
 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
@@ -59,6 +62,12 @@ Route::get('/user/logout', [BrandController::class , 'Logout'])->name('user.logo
 Route::get('/multiple/all', [MultipleController::class , 'multipleimage'])->name('multiple.all');
 
 Route::post('/multiple/store', [MultipleController::class , 'multipleimagestore'])->name('multiple.store');
+
+// slidercontroller
+
+Route::get('home/slider', [SliderController::class, 'SliderPage'])->name('home.slider');
+
+Route::get('slider/add', [SliderController::class, 'SliderAdd'])->name('slider.add');
 
 
 

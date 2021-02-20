@@ -94,7 +94,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="{{asset('frontend/background-image: url(assets/img/slide/slide-1.jpg)')}}">
+        <div class="carousel-item active" style="background-image: url(frontend/assets/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Welcome to <span>Company</span></h2>
@@ -105,7 +105,7 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
+        <div class="carousel-item" style="background-image: url(frontend/assets/img/slide/slide-2.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Lorem Ipsum Dolor</h2>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
+        <div class="carousel-item" style="background-image: url(frontend/assets/img/slide/slide-3.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Sequi ea ut et est quaerat</h2>
@@ -228,7 +228,7 @@
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{asset('frontendassets/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/php-email-form/validate.js')}}"></script>
