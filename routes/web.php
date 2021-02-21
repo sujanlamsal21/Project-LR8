@@ -67,7 +67,14 @@ Route::post('/multiple/store', [MultipleController::class , 'multipleimagestore'
 
 Route::get('home/slider', [SliderController::class, 'SliderPage'])->name('home.slider');
 
-Route::get('slider/add', [SliderController::class, 'SliderAdd'])->name('slider.add');
+Route::get('slider/add', [SliderController::class, 'SliderAdd'])->name('slider.addpage');
+
+Route::post('slider/add', [SliderController::class, 'SliderAddPage'])->name('slider.add');
+
+Route::get('slider/edit/{id}', [SliderController::class, 'Slidereditpage'])->name('slider.editpage');
+
+Route::post('slider/update/{id}', [SliderController::class, 'SliderUpdate'])->name('slider.update');
+
 
 
 

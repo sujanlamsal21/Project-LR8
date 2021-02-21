@@ -28,12 +28,12 @@
                     <thead>
 
                       <tr>
-                        <th scope="col">S No</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Slider Images</th>
+                        <th scope="col" width="5%">S No</th>
+                        <th scope="col"width="12%">Title</th>
+                        <th scope="col"width="30%">Description</th>
+                        <th scope="col"width="10%">Slider Images</th>
                         {{-- <th scope="col">Created At</th> --}}
-                        <th scope="col">Action</th>
+                        <th scope="col"width="15%">Action</th>
                       </tr>
 
                     </thead>
