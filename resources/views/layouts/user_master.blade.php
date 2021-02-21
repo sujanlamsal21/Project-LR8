@@ -101,9 +101,10 @@ $slidervalue = DB::table('sliders')->get();
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
       <div class="carousel-inner" role="listbox">
-@foreach($slidervalue as $slide)
+@foreach($slidervalue as $key=>$slide)
         <!-- Slide 1 -->
-        <div class="carousel-item" style="background-image: url({{$slide->slider_image}})">
+
+        <div class="carousel-item {{$key == 0 ? 'active' : '' }}" style="background-image: url('{{asset($slide->slider_image)}}')">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>{{$slide->title}}</h2>

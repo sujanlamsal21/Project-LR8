@@ -69,7 +69,7 @@ class SliderController extends Controller
 
         ]);
 
-        $imagefile = $request->file('slier_image');
+        $imagefile = $request->file('slider_image');
 
         if($imagefile){
 
@@ -85,30 +85,55 @@ class SliderController extends Controller
 
         $imagefile->move($up_location, $img_name);
 
-        DB::table('sliders')->find($id)->update(
-            array(
-                   'title'     =>   $request->title,
-                   'description'   =>   $request->description,
-                   'slider_image' => $last_img,
-                   'updated_at' => Carbon::now(),
+    //     DB::table('sliders')->find($id)->update(
+    //         array(
+    //                'title'     =>   $request->title,
+    //                'description'   =>   $request->description,
+    //                'slider_image' => $last_img,
+    //                'updated_at' => Carbon::now(),
 
-            )
-       );
+    //         )
+    //    );
+
+     $data = Slider::find($id);
+
+     $data->title = $request->title;
+
+     $data-> description = $request->description;
+
+     $data->slider_image = $last_img;
+
+     $data->save();
+
        return redirect('home/slider')->with('success', 'Slider Updated successfully');
         }else{
-           $data = DB::table('sliders')->find($id);
+        //    $data = DB::table('sliders')->find($id);
 
-           $old_img =$data->old_image;
+        $data = Slider::find($id);
 
-            DB::table('sliders')->find($id)->update(
-                array(
-                       'title'     =>   $request->title,
-                       'description'   =>   $request->description,
-                       'slider_image' => $old_img,
-                       'updated_at' => Carbon::now(),
+           $old_img =$data->slider_image;
 
-                )
-           );
+        //     DB::table('sliders')->update(
+        //         array(
+        //                'title'     =>   $request->title,
+        //                'description'   =>   $request->description,
+        //                'slider_image' => $old_img,
+        //                'updated_at' => Carbon::now(),
+
+        //         )
+        //    );
+
+       $data = Slider::find($id);
+
+       $data->title = $request->title;
+
+        $data-> description = $request->description;
+
+        $data->slider_image = $old_img;
+
+        $data->save();
+
+
            return redirect('home/slider')->with('success', 'Slider Updated successfully');
         }
     }

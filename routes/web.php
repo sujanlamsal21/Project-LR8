@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\MultipleController;
 use App\Http\Controllers\SliderController;
 
@@ -75,6 +76,10 @@ Route::get('slider/edit/{id}', [SliderController::class, 'Slidereditpage'])->nam
 
 Route::post('slider/update/{id}', [SliderController::class, 'SliderUpdate'])->name('slider.update');
 
+
+//HomeAbout Controller
+
+Route::get('home/about', [HomeAboutController::class, 'index'])->name('home.about');
 
 
 
