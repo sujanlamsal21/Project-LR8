@@ -48,7 +48,7 @@
                         {{-- <td>{{$brand->created_at->diffForHumans() }}</td> --}}
                         <td><a href="/slider/edit/{{$slide->id}}" class="btn btn-info">Edit</a>
 
-                            <a href="/slider/delete/{{$slide->id}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete')">Delete</a></td>
+                            <a href="{{route('slider.delete', $slide->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete')">Delete</a></td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -57,31 +57,6 @@
                   </div>
               </div>
               </div>
-              {{-- <div class="col-md-4">
-                <div class="card">
-                  <h3 class="card-header">Create Brand</h3>
-                  <div class="card-body">
-                    <form action="{{route('brand.store')}}" method="post" enctype="multipart/form-data">
-                      @csrf
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Brand</label>
-                        <input type="text" class="form-control" name="brand_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category">
-                        @error('brand_name')
-                           <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Image</label>
-                        <input type="file" class="form-control" name="brand_image" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        @error('brand_image')
-                           <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                      </div>
-                      <button type="submit" name="create_brand" class="btn btn-primary">Create Brand</button>
-                    </form>
-                  </div>
-                </div>
-              </div> --}}
 
             </div>
         </div>

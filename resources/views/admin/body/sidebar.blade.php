@@ -52,6 +52,13 @@
 
                         </a>
                       </li>
+
+                      <li>
+                        <a class="sidenav-item-link" href="/home/services">
+                          <span class="nav-text">Home Services</span>
+
+                        </a>
+                      </li>
                       <li  class="active" >
                         <a class="sidenav-item-link" href="index.html">
                           <span class="nav-text">Home Portfolio</span>

@@ -46,7 +46,7 @@ class SliderController extends Controller
                    'title'     =>   $request->title,
                    'description'   =>   $request->description,
                    'slider_image' => $last_img,
-                   'created_at' => now(),
+                   'created_at' => Carbon::now(),
 
             )
        );
@@ -136,5 +136,17 @@ class SliderController extends Controller
 
            return redirect('home/slider')->with('success', 'Slider Updated successfully');
         }
+    }
+
+    public function SliderDelete($id){
+        $data = DB::table('sliders')->find($id);
+
+        $old_img = $data->slider_image;
+
+        unlink($old_img);
+
+        Slider::Find($id)->delete();
+
+        return redirect('home/slider')->with('success', 'Slider Deleted successfully');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\MultipleController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SliderController;
 
 /*
@@ -27,7 +28,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+
+    $aboutdata = DB::table('home_abouts')->first();
+    return view('home', compact('brands', 'aboutdata'));
 });
 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
@@ -76,10 +79,30 @@ Route::get('slider/edit/{id}', [SliderController::class, 'Slidereditpage'])->nam
 
 Route::post('slider/update/{id}', [SliderController::class, 'SliderUpdate'])->name('slider.update');
 
+Route::get('slider/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
+
 
 //HomeAbout Controller
 
 Route::get('home/about', [HomeAboutController::class, 'index'])->name('home.about');
+
+Route::get('home/about/add', [HomeAboutController::class, 'AboutAddPage'])->name('about.addpage');
+
+Route::post('home/about/add', [HomeAboutController::class, 'AboutAdd'])->name('about.add');
+
+Route::get('home/about/edit/{id}', [HomeAboutController::class, 'AboutEditPage'])->name('about.editpage');
+
+Route::post('home/about/edit/{id}', [HomeAboutController::class, 'AboutEdit'])->name('about.edit');
+
+Route::get('home/about/delete/{id}', [HomeAboutController::class, 'AboutDelete'])->name('about.delete');
+
+//services controller
+
+Route::get('home/services', [ServicesController::class, 'index'])->name('serviceshome');
+
+Route::get('home/services/add', [ServicesController::class, 'servicesAddPage'])->name('services.addpage');
+
+Route::post('home/services/add', [ServicesController::class, 'servicesAdd'])->name('services.add');
 
 
 
