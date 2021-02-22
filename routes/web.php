@@ -29,8 +29,10 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
 
+    $servicesdata = DB::table('services')->get();
+
     $aboutdata = DB::table('home_abouts')->first();
-    return view('home', compact('brands', 'aboutdata'));
+    return view('home', compact('brands', 'aboutdata', 'servicesdata'));
 });
 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');

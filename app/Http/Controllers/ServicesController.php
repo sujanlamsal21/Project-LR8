@@ -22,10 +22,10 @@ class ServicesController extends Controller
 
     public function servicesAdd(Request $request){
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:services',
             'description' => 'required',
-            'icon' =>'required',
-        ]);
+            'icon' => 'required',
+           ]);
 
         DB::table('services')->insert([
             'title' => $request->title,
