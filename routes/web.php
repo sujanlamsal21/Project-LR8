@@ -7,9 +7,12 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChangePass;
 use App\Http\Controllers\MultipleController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\HomeAboutController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -142,6 +145,19 @@ Route::post('contactform/submit', [ContactController::class, 'admincontactform']
 Route::get('contactdetails', [ContactController::class, 'contactdetails'])->name('contact.details');
 
 
+//changepass
+
+Route::get('Password/Update', [ChangePass::class, 'index'])->name('change.password');
+
+Route::post('Password/Update', [ChangePass::class, 'updatepassword'])->name('update.password');
+
+//teams controller
+
+Route::get('teams/all', [TeamController::class, 'index'])->name('teams.all');
+
+//testimonialscontroller
+
+Route::get('testimonials/all', [TestimonialsController::class, 'index'])->name('testimonials.all');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -56,10 +56,10 @@
 
           <li class="drop-down"><a href="">About</a>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
+              <li><a href="#about-us">About Us</a></li>
+              <li><a href="{{route('teams.all')}}">Team</a></li>
+              <li><a href="{{route('testimonials.all')}}">Testimonials</a></li>
+              {{-- <li class="drop-down"><a href="#">Deep Drop Down</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -67,24 +67,23 @@
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-              </li>
+              </li> --}}
             </ul>
           </li>
 
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="/contact">Contact</a></li>
+          <li><a href="{{route('login')}}">Admin Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        <a href="https://twitter.com/lamsalsujan?lang=en" target="_blank" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="https://www.facebook.com/sujan.lamsal.7792/" target="_blank" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="https://www.instagram.com/lamsalsujan21/" target="_blank" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/sujan-lamsal-b722a11a2/" target="_blank" class="linkedin"><i class="icofont-linkedin"></i></i></a>
       </div>
 
     </div>
@@ -95,6 +94,10 @@
   <!-- End Hero -->
 
   <main id="main">
+
+    @yield('teams')
+
+    @yield('testimonials')
 
     @yield('User_dashboard')
 
@@ -121,9 +124,9 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about-us">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
@@ -158,20 +161,13 @@
         <div class="copyright">
           &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+
+        <a href="https://twitter.com/lamsalsujan?lang=en"  target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/sujan.lamsal.7792/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/lamsalsujan21/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/sujan-lamsal-b722a11a2/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
