@@ -4,11 +4,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\MultipleController;
 use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\SliderController;
+use App\Http\Controllers\HomeAboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,14 @@ Route::get('/', function () {
 
     $servicesdata = DB::table('services')->get();
 
+    $multipledata = DB::table('multiples')->get();
+
     $aboutdata = DB::table('home_abouts')->first();
-    return view('home', compact('brands', 'aboutdata', 'servicesdata'));
-});
+
+    $slidervalue = DB::table('sliders')->get();
+
+    return view('home', compact('brands', 'aboutdata', 'servicesdata', 'multipledata', 'slidervalue'));
+})->name('home');
 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('category.all');
 
@@ -105,6 +111,35 @@ Route::get('home/services', [ServicesController::class, 'index'])->name('service
 Route::get('home/services/add', [ServicesController::class, 'servicesAddPage'])->name('services.addpage');
 
 Route::post('home/services/add', [ServicesController::class, 'servicesAdd'])->name('services.add');
+
+Route::get('home/services/edit/{id}', [ServicesController::class, 'serviceseditpage'])->name('services.editpage');
+
+Route::post('home/services/edit/{id}', [ServicesController::class, 'servicesedit'])->name('services.edit');
+
+Route::get('home/services/delete/{id}', [ServicesController::class, 'servicesdelete'])->name('services.delete');
+
+//contact controller
+
+
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+
+
+
+Route::get('contact/all', [ContactController::class, 'admincontact'])->name('contact.all');
+
+Route::get('contact/addpage', [ContactController::class, 'admincontactaddpage'])->name('contact.addpage');
+
+Route::post('contact/add', [ContactController::class, 'adminContactadd']);
+
+Route::get('contact/edit/{id}', [ContactController::class, 'admineditpage'])->name('contact.editpage');
+
+Route::post('contact/edit/{id}', [ContactController::class, 'adminedit'])->name('contact.edit');
+
+Route::get('contact/delete/{id}', [ContactController::class, 'admincontactdelete'])->name('contact.delete');
+
+Route::post('contactform/submit', [ContactController::class, 'admincontactform'])->name('contactform.submit');
+
+Route::get('contactdetails', [ContactController::class, 'contactdetails'])->name('contact.details');
 
 
 

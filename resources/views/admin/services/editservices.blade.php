@@ -8,20 +8,20 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-header">Add Services</h3>
+              <h3 class="card-header">Edit Services</h3>
               <div class="card-body">
-                <form method="post" action="{{ route('services.add')}}">
+                <form method="post" action="{{ route('services.edit', $serviceseditdata->id)}}">
                     @csrf
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Title</label>
-                      <input type="text" class="form-control" value="" name="title" placeholder="Slider title">
+                      <input type="text" class="form-control" value="{{$serviceseditdata->title}}" name="title" placeholder="Slider title">
                       @error('title')
                           <div class="alert alert-danger">{{$message}}</div>
                       @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" name="description" rows="3"></textarea>
+                      <textarea class="form-control" name="description" rows="3">{{$serviceseditdata->description}}</textarea>
                       @error('description')
                           <div class="alert alert-danger">{{$message}}</div>
                       @enderror
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Icon</label>
                         <select class="form-select" name="icon" aria-label="Default select example">
-                            <option selected>Select Icon</option>
+                            <option selected>{{$serviceseditdata->icon}}</option>
                             <option >file</option>
                             <option >tachometer</option>
                             <option>slideshow</option>
